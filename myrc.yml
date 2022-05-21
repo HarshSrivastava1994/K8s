@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ReplicationController
+#RC name details
+metadata:
+  name: myapp-rc
+#replicas tell how many container u want
+spec:
+  replicas: 3
+#pod name and selector app name will be same
+  selector:
+    app: myapp
+    version: 2.7.2
+  template:
+#information about pod
+    metadata:
+      labels:
+        app: myapp
+        version: 2.7.2
+#specification of container to create with image name and port
+    spec:
+      containers:
+        - name: myjavaapp-container
+          images: maha4iac/mahaonlinestore:1
+          ports:
+            - containerPort: 8080
+          
+
+
