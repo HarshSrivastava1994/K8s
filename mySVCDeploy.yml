@@ -3,10 +3,9 @@ kind: Service
 
 #pod label and service label should be same
 metadata:
-  name: myapp-svc
+  name: myjavaapp-svc
   labels:
-    app: myapp
-    version: 2.7.2
+    app: myjavaapp
 
 spec:
   type: NodePort
@@ -15,7 +14,4 @@ spec:
       nodePort: 30001
       protocol: TCP
   selector:
-    app: myapp
-    version:  2.7.2
-   
-
+    app: myjavaapp

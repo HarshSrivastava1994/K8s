@@ -1,0 +1,26 @@
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: myjavaapp-deploy
+  labels:
+    app: myjavaapp
+#replication controller specification  
+spec:
+  replicas:
+  selector:
+      matchLabels:
+        app: myjavaapp
+
+#pod information
+  template:
+    metadata:
+      labels:
+        app: myjavaapp
+
+#specification about the container
+    spec:
+      containers:
+        - name: myjavaapp-container
+          image: maha4iac/mahaonlinestore:1
+          ports:
+            - containerPort: 8080
